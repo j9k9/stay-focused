@@ -1,0 +1,140 @@
+
+/******************************************
+/* SETUP
+/*******************************************/
+
+/* Box Model Hack */
+* {
+ box-sizing: border-box;
+}
+
+/* Clearfix hack */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after{
+  clear: both;
+}
+
+.alignright {
+	float: right;
+	padding: 0 0 10px 10px; /* note the padding around a right floated image */
+}
+
+.alignleft {
+	float: left;
+	padding: 0 10px 10px 0; /* note the padding around a left floated image */
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+/*html {
+  background: url(../images/1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
+body {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+  font-family: Helvetica, Arial, sans-serif;
+  width: 100%;
+  text-align: center;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #333;
+  /*background: url(../images/1.jpg) no-repeat center center fixed;*/
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+/* Center the container */
+.container {
+  margin: 0 auto;
+  position: absolute;
+  top:  50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+
+/******************************************
+/* TEXT STYLES
+/*******************************************/
+.greeting {
+ font-size: 40px;
+}
+
+a {
+  color: #fff;
+}
+
+
+#source {
+  position:absolute;
+  bottom:0;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button {
+  margin      : 0;
+  padding     : 0;
+  border      : 0;
+  background  : transparent;
+  font-family : inherit;
+  font-size   : 1em;
+  cursor      : pointer;
+}
+
+#start, #stop, #reset {
+  display : block;
+  color: #fff;
+  padding: 15px 25px;
+  border: 1px solid;
+  border-color: hsla(0,0%,100%,.6);
+  font-size: 10px;
+  letter-spacing: 3px;
+  font-weight: 400;
+  border-width: 1px;
+  max-width: 350px;
+  margin: auto;
+  text-transform: uppercase;
+}
+
+button span:hover {
+  background-color: #fff;
+  color: #000;
+  transition: .3s ease-in-out;
+}
+
+#timer {
+  font-size: 125px;
+}
+
+#time {
+  font-size: 125px;
+}
+
+#stop, #reset {
+  display:none;
+}
+
+
+.hide {
+  display: none;
+}
