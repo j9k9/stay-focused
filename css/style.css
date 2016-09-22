@@ -42,7 +42,7 @@
 
 body {
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   font-family: Helvetica, Arial, sans-serif;
   width: 100%;
@@ -97,30 +97,24 @@ button {
   border      : 0;
   background  : transparent;
   font-family : inherit;
-  font-size   : 1em;
   cursor      : pointer;
 }
 
 #start, #stop, #reset {
   display : block;
-  color: #fff;
-  padding: 15px 25px;
-  border: 1px solid;
+  padding: 18px 28px;
   border-color: hsla(0,0%,100%,.6);
   font-size: 10px;
   letter-spacing: 3px;
   font-weight: 400;
-  border-width: 1px;
+  border: 1.5px solid #fff;
+  color: #fff;
   max-width: 350px;
   margin: auto;
   text-transform: uppercase;
 }
 
-button span:hover {
-  background-color: #fff;
-  color: #000;
-  transition: .3s ease-in-out;
-}
+
 
 #timer {
   font-size: 125px;

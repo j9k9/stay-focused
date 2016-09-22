@@ -186,4 +186,9 @@ function jsonFlickrApi(rsp) {
 
   // change the quote
 
-  var data = $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?");
+  var data = $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?", function() {
+   quotation = data.responseJSON.quoteText;
+   author = data.responseJSON.quoteAuthor;
+   $("#quote").html("\"" + quotation + "\"");
+   $("#author").html(" - " + author);
+});
