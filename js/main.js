@@ -1,24 +1,32 @@
-// swap the bg image
-var s = "";
+  // swap the bg image
 
-function jsonFlickrApi(rsp) {
-      window.rsp = rsp;
+  var flickr = $.getJSON("https://api.flickr.com/services/rest/?method=flickr.favorites.getList&api_key=4851b60bf2fac656669efe50efb41947&user_id=147186886%40N05&format=json&nojsoncallback=1", function() {
 
-      i = [Math.floor(Math.random() * rsp.photos.photo.length-1)];
+    i = [Math.floor(Math.random() * flickr.responseJSON.photos.photo.length-1)];
 
-      photo = rsp.photos.photo[i];
+    photo = flickr.responseJSON.photos.photo[i];
 
-      document.body.style.backgroundImage = "url(http://farm" + photo.farm + ".static.flickr.com/" +
-      photo.server + "/" + photo.id + "_" + photo.secret + "_" + "b.jpg)";
+    document.body.style.backgroundImage = "url(http://farm" + photo.farm + ".static.flickr.com/" +
+    photo.server + "/" + photo.id + "_" + photo.secret + "_" + "b.jpg)";
 
-      document.querySelector("#source").innerHTML = photo.title;
+    document.querySelector("#source").innerHTML = photo.title;
 
-      p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+    p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
 
-      var Element = document.getElementById('link');
-      Element.setAttribute('href', p_url);
+    var Element = document.getElementById('link');
+    Element.setAttribute('href', p_url);
+});
 
-  }
+
+  // change the quote
+
+  var data = $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?", function() {
+   quotation = data.responseJSON.quoteText;
+   author = data.responseJSON.quoteAuthor;
+   $("#quote").html("\"" + quotation + "\"");
+   $("#author").html(" - " + author);
+});
+
 
 
   // show the current time
@@ -49,7 +57,7 @@ function jsonFlickrApi(rsp) {
   // document.body.style.backgroundImage = "url(images/" + bgChoice + ".jpg)";
 
   // fade-in elements
-  $("#time, .greeting, #start").hide().fadeIn(1000);
+  $("#time, .greeting, #start, .inspiration, #source").hide().fadeIn(1000);
 
 
 
@@ -183,12 +191,3 @@ function jsonFlickrApi(rsp) {
   	$("#time").html( "");
 
   });
-
-  // change the quote
-
-  var data = $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?", function() {
-   quotation = data.responseJSON.quoteText;
-   author = data.responseJSON.quoteAuthor;
-   $("#quote").html("\"" + quotation + "\"");
-   $("#author").html(" - " + author);
-});
